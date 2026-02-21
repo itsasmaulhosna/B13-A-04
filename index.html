@@ -7,5 +7,24 @@
     <!-- tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body></body>
+  <body>
+    <header class="w-[80%] mx-auto space-y-5">
+      <h2 class="text-3xl font-bold text-blue-950">Job Application Tracker</h2>
+      <div class="grid sm:grid-cols-1 lg:grid-cols-3 gap-3">
+        <div class="bg-gray-50 pl-5 py-5 rounded-xl">
+          <p>Total</p>
+          <p class="text-blue-950">0</p>
+        </div>
+        <div class="bg-gray-50 pl-5 py-5 rounded-xl">
+          <p>Interview</p>
+          <p class="text-green-300">0</p>
+        </div>
+        <div class="bg-gray-50 pl-5 py-5 rounded-xl">
+          <p>Rejected</p>
+          <p class="text-red-200">0</p>
+        </div>
+      </div>
+    </header>
+    <hr class="my-5 w-[80%] mx-auto border-gray-300" />
+  </body>
 </html>
