@@ -42,19 +42,22 @@
         </div>
         <div class="flex flex-col md:flex-row lg:block gap-3">
           <button
+            onclick="toggleStyle('all-filter-btn')"
             id="all-filter-btn"
             class="text-white bg-blue-500 rounded px-8 py-2"
           >
             All
           </button>
           <button
+            onclick="toggleStyle('interview-filter-btn')"
             id="interview-filter-btn"
-            class="text-gray-400 bg-gray-50 rounded px-8 py-2"
+            class="text-gray-500 bg-gray-50 rounded px-8 py-2"
           >
             Interview
           </button>
           <button
-            id="interview-filter-btn"
+            onclick="toggleStyle('rejected-filter-btn')"
+            id="rejected-filter-btn"
             class="text-gray-500 bg-gray-50 rounded px-8 py-2"
           >
             Rejected
@@ -69,7 +72,7 @@
           <!-- 1 -->
           <div class="space-y-6">
             <div>
-              <h3 class="text-blue-950 font-bold">Mobile Frist Crop</h3>
+              <h3 class="text-blue-950 font-bold mobile">Mobile Frist Crop</h3>
               <p class="text-gray-400">React Native Developer</p>
             </div>
             <div class="flex gap-3 flex-col sm:flex-row sm:gap-3">

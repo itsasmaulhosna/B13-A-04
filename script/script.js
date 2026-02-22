@@ -11,10 +11,10 @@ const mainContainer = document.querySelector('main');
 const allFilteredBtn = document.getElementById('all-filter-btn');
 const interviewFilteredBtn = document.getElementById('interview-filter-btn');
 const rejectedFilteredBtn = document.getElementById('rejected-filter-btn');
-// // rejectedFilteredBtn.addEventListener('click', function () {
-// //   window.location.assign('/B13-A-04/rejected.html');
-// //   console.log('hello');
-// });
+rejectedFilteredBtn.addEventListener('click', function () {
+  window.location.assign('/B13-A-04/rejected.html');
+  console.log('hello');
+});
 mainContainer.addEventListener('click', function (event) {
   console.log(event.target);
 });
