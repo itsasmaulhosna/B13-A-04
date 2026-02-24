@@ -19,10 +19,14 @@ const rejectedFilteredBtn = document.getElementById('rejected-filter-btn');
 
 // no jobs
 interviewFilteredBtn.addEventListener('click', function () {
-  noJob.classList.remove('hidden');
+  if (interviewList.length === 0) {
+    noJob.classList.remove('hidden');
+  }
 });
 rejectedFilteredBtn.addEventListener('click', function () {
-  noJob.classList.remove('hidden');
+  if (rejectedList.length === 0) {
+    noJob.classList.remove('hidden');
+  }
 });
 // interviewBtn.addEventListener('click', function () {
 //   noJob.classList.add('hidden');
@@ -69,19 +73,17 @@ function renderInterviewing() {
           <!-- 1 -->
           <div class="space-y-6">
             <div>
-              <h3 class="text-blue-950 font-bold mobile">Mobile Frist Crop</h3>
-              <p class="text-gray-400 react">React Native Developer</p>
+              <h3 class="text-blue-950 font-bold mobile">${interview.mobileApp}</h3>
+              <p class="text-gray-400 react">${interview.react}</p>
             </div>
             <div class="flex gap-3 flex-col sm:flex-row sm:gap-3 type">
-              <p class="text-gray-400">Remote .</p>
-              <p class="text-gray-400">Full Time .</p>
-              <p class="text-gray-400">$130,000-$175,000</p>
+              <p class="text-gray-400">${interview.type}</p>
+
             </div>
 
-            <p class="px-3 py-3 bg-blue-100 inline-block status">NOT APPLIED</p>
+            <p class="px-3 py-3 bg-blue-100 inline-block status">Interview</p>
             <p class="text-gray-500 notes">
-              Bulid cross-platfrom mobile application using React Native.Work on
-              products used by millions of user worldwide.
+              ${interview.note}
             </p>
 
             <button
@@ -126,7 +128,9 @@ mainContainer.addEventListener('click', function (event) {
       note,
     };
 
-    const exist = interviewList.find((item) => item.mobile == cardInfo.mobile);
+    const exist = rejectedList.find(
+      (item) => item.mobileApp == cardInfo.mobileApp,
+    );
 
     if (!exist) {
       rejectedList.push(cardInfo);
@@ -147,19 +151,17 @@ mainContainer.addEventListener('click', function (event) {
           <!-- 1 -->
           <div class="space-y-6">
             <div>
-              <h3 class="text-blue-950 font-bold mobile">Mobile Frist Crop</h3>
-              <p class="text-gray-400 react">React Native Developer</p>
+              <h3 class="text-blue-950 font-bold mobile">${rejecte.mobileApp}</h3>
+              <p class="text-gray-400 react">${rejecte.react}</p>
             </div>
             <div class="flex gap-3 flex-col sm:flex-row sm:gap-3 type">
-              <p class="text-gray-400">Remote .</p>
-              <p class="text-gray-400">Full Time .</p>
-              <p class="text-gray-400">$130,000-$175,000</p>
+              <p class="text-gray-400">${rejecte.type}</p>
+              
             </div>
 
-            <p class="px-3 py-3 bg-blue-100 inline-block status">NOT APPLIED</p>
+            <p class="px-3 py-3 bg-blue-100 inline-block status">Rejected</p>
             <p class="text-gray-500 notes">
-              Bulid cross-platfrom mobile application using React Native.Work on
-              products used by millions of user worldwide.
+              ${rejecte.note}
             </p>
 
             <button
@@ -201,54 +203,6 @@ mainContainer.addEventListener('click', function (event) {
 });
 
 // rejected render
-function renderReject() {
-  filteredSection.innerHTML = '';
-  for (let rejecte of rejectedList) {
-    console.log(interview);
-    let div = document.createElement('div');
-    div.innerHTML = `<div
-          class="card flex justify-between bg-gray-50 rounded p-4 md:flex-row md:justify-between"
-        >
-          <!-- 1 -->
-          <div class="space-y-6">
-            <div>
-              <h3 class="text-blue-950 font-bold mobile">Mobile Frist Crop</h3>
-              <p class="text-gray-400 react">React Native Developer</p>
-            </div>
-            <div class="flex gap-3 flex-col sm:flex-row sm:gap-3 type">
-              <p class="text-gray-400">Remote .</p>
-              <p class="text-gray-400">Full Time .</p>
-              <p class="text-gray-400">$130,000-$175,000</p>
-            </div>
-
-            <p class="px-3 py-3 bg-blue-100 inline-block status">NOT APPLIED</p>
-            <p class="text-gray-500 notes">
-              Bulid cross-platfrom mobile application using React Native.Work on
-              products used by millions of user worldwide.
-            </p>
-
-            <button
-              class="text-green-300 border border-green-200 rounded px-4 py-2"
-            >
-              INTERVIEW
-            </button>
-            <button
-              class="text-red-300 border border-red-100 rounded px-4 py-2"
-            >
-              REJECTED
-            </button>
-          </div>
-          <!-- 2 -->
-
-          <div
-            class="inline-flex rounded-full border border-gray-300 w-fit h-fit p-2"
-          >
-            <i class="fa-regular fa-trash-can"></i>
-          </div>
-        </div>`;
-    filteredSection.appendChild(div);
-  }
-}
 
 // count total
 function calculateCount() {
