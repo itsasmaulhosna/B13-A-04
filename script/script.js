@@ -64,8 +64,6 @@ mainContainer.addEventListener('click', function (event) {
       renderReject();
     }
 
-    event.target.classList.add('bg-green-400', 'text-white');
-    event.target.classList.remove('text-green-300');
     calculateCount();
     if (currentStatus === 'interview-filter-btn') renderInterviewing();
     if (currentStatus === 'rejected-filter-btn') renderReject();
@@ -102,8 +100,7 @@ mainContainer.addEventListener('click', function (event) {
     if (currentStatus == 'interview-filter-btn') {
       renderInterviewing();
     }
-    event.target.classList.add('bg-red-400', 'text-white');
-    event.target.classList.remove('text-red-300');
+
     calculateCount();
     if (currentStatus === 'interview-filter-btn') renderInterviewing();
     if (currentStatus === 'rejected-filter-btn') renderReject();
