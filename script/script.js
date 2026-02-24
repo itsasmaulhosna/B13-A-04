@@ -33,6 +33,8 @@ rejectedFilteredBtn.addEventListener('click', function () {
 
 mainContainer.addEventListener('click', function (event) {
   if (event.target.classList.contains('interview-btn')) {
+    toggleStyle('interview-filter-btn');
+
     noJob.classList.add('hidden');
     // filteredSection.classList.remove('hidden');
 
@@ -73,6 +75,8 @@ mainContainer.addEventListener('click', function (event) {
     if (currentStatus === 'interview-filter-btn') renderInterviewing();
     if (currentStatus === 'rejected-filter-btn') renderReject();
   } else if (event.target.classList.contains('rejected-btn')) {
+    toggleStyle('rejected-filter-btn');
+
     noJob.classList.add('hidden');
     // filteredSection.classList.remove('hidden');
     const parenNode = event.target.parentNode.parentNode;
@@ -144,7 +148,7 @@ function renderInterviewing() {
               INTERVIEW
             </button>
             <button
-              class="text-red-300 border border-red-100 rounded px-4 py-2"
+              class="text-red-300 border border-red-100 rounded px-4 py-2 rejected-btn"
             >
               REJECTED
             </button>
@@ -187,7 +191,7 @@ function renderReject() {
             </p>
 
             <button
-              class="text-green-300 border border-green-200 rounded px-4 py-2"
+              class="text-green-300 border border-green-200 rounded px-4 py-2 interview-btn"
             >
               INTERVIEW
             </button>
@@ -233,13 +237,15 @@ function updateAvailableJob() {
   const totalJobs = allCards.children.length;
   let currentCount = 0;
   if (currentStatus === 'all-filter-btn') {
-    currentCount = totalJobs;
+    currentCount = 0;
   } else if (currentStatus === 'interview-filter-btn') {
     currentCount = interviewList.length;
+    renderInterviewing();
   } else if (currentStatus === 'rejected-filter-btn') {
     currentCount = rejectedList.length;
+    renderReject();
   }
-  availableJob.innerText = `${currentCount} of ${totalJobs} jobs`;
+  availableJob.innerText = `${currentCount > 0 ? currentCount + ' ' + 'of' : ''}  ${totalJobs} jobs`;
 }
 
 // count total
