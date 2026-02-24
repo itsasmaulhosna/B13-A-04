@@ -2,8 +2,6 @@ let interviewList = [];
 let rejectedList = [];
 let currentStatus = 'all';
 
-// get btn
-
 // get id for count
 const totalCount = document.getElementById('total');
 const interviewCount = document.getElementById('interview');
@@ -34,10 +32,7 @@ rejectedFilteredBtn.addEventListener('click', function () {
 mainContainer.addEventListener('click', function (event) {
   if (event.target.classList.contains('interview-btn')) {
     toggleStyle('interview-filter-btn');
-
     noJob.classList.add('hidden');
-    // filteredSection.classList.remove('hidden');
-
     const parenNode = event.target.parentNode.parentNode;
     const mobileApp = parenNode.querySelector('.mobile').innerText;
     const react = parenNode.querySelector('.react').innerText;
@@ -76,16 +71,14 @@ mainContainer.addEventListener('click', function (event) {
     if (currentStatus === 'rejected-filter-btn') renderReject();
   } else if (event.target.classList.contains('rejected-btn')) {
     toggleStyle('rejected-filter-btn');
-
     noJob.classList.add('hidden');
-    // filteredSection.classList.remove('hidden');
     const parenNode = event.target.parentNode.parentNode;
     const mobileApp = parenNode.querySelector('.mobile').innerText;
     const react = parenNode.querySelector('.react').innerText;
     const type = parenNode.querySelector('.type').innerText;
     const status = parenNode.querySelector('.status').innerText;
     const note = parenNode.querySelector('.notes').innerText;
-    parenNode.querySelector('.status').innerText = 'Rejectd';
+    parenNode.querySelector('.status').innerText = 'Rejected';
     const cardInfo = {
       mobileApp,
       react,
@@ -117,7 +110,7 @@ mainContainer.addEventListener('click', function (event) {
   }
 });
 
-// render
+// interview render
 function renderInterviewing() {
   filteredSection.innerHTML = '';
   for (let interview of interviewList) {
@@ -226,8 +219,6 @@ mainContainer.addEventListener('click', function (event) {
     if (total > 0) {
       totalElement.innerText = total - 1;
     }
-    //   if (currentStatus === 'interview-filter-btn') renderInterviewing();
-    //   if (currentStatus === 'rejected-filter-btn') renderReject();
   }
 });
 
@@ -280,7 +271,7 @@ function toggleStyle(id) {
       noJob.classList.remove('hidden');
     } else {
       noJob.classList.add('hidden');
-      renderInterviewing(); // 🔥 must call
+      renderInterviewing();
     }
   } else if (id == 'all-filter-btn') {
     allCards.classList.remove('hidden');
@@ -292,7 +283,7 @@ function toggleStyle(id) {
       noJob.classList.remove('hidden');
     } else {
       noJob.classList.add('hidden');
-      renderReject(); // 🔥 must call
+      renderReject();
     }
   } else {
     noJob.classList.add('hidden');
